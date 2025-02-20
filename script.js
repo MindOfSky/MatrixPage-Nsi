@@ -99,7 +99,7 @@ var animate = setInterval(function () {
 		rain[i].update();
 	}
 // 1000/fps you want
-}, 1000/15);
+}, 1000/20);
 
 // Resize window
 window.addEventListener("resize", function(){
@@ -109,6 +109,6 @@ window.addEventListener("resize", function(){
 	canvas.height = height;
 	canvas.width = width;
 
-	cx = (width/2);
-	cy = (height/2);
+	cx = (width);
+	cy = (height);
 }, true);
