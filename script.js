@@ -1,9 +1,11 @@
+// Fonction pour Retourner au début de la page
 let gototop = document.getElementById('top');
 
 function topFunction() {
     document.documentElement.scrollTop = 0;
 }
-// Declare canvas and context
+////////////////////////////////////////////////////////////////
+// Mise en place Variables
 var canvas = document.getElementById('canvas');
 var c = canvas.getContext('2d');
 var	height = window.innerHeight;
@@ -13,16 +15,16 @@ var cy = (height);
 canvas.height = height;
 canvas.width = width;
 
-// Setup, used for refresh
+// Setup & refresh
 function setup() {
 	c.fillStyle = 'rgba(0, 0, 0, 0.1)';
 	c.fillRect(0, 0, width, height);
 }
 
-// Random characters for the rain
+// Character utilisés pour la matrix
 var character = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',  'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-// Change depth to give a more 3d look
+// AJOUT 3D
 function depth(z) {
 	if (z > .4) {
 		return 15;
@@ -33,7 +35,7 @@ function depth(z) {
 	}
 }
 
-// Determine color based on z
+// Couleur Basées sur l'axe Z (3D)
 function color(z) {
 	var random = Math.floor(Math.random()*100)
 	if (random < 20 && z < .1) {
@@ -52,10 +54,10 @@ function color(z) {
 	}
 }
 
-// Font, see css for import
+// Font (Bugée Car non importée Mais Fonctionelle Donc on touches pas)
 var font = "px New Rock";
 
-// Create Matrix objects
+// Création de la MatrixRain
 function Matrix(x, y, z) {
 	this.x = x;
 	this.y = y;
@@ -80,7 +82,7 @@ function Matrix(x, y, z) {
 	}
 }
 
-// Create objects
+// Creation Objects
 var rain = [];
 var maxCount = width/5;
 for (var i = 0; i < maxCount; i++) {
@@ -91,17 +93,17 @@ for (var i = 0; i < maxCount; i++) {
 	rain.push(new Matrix(x, y, z));
 }
 
-// Animate loop
+// Animation + Boucle
 var animate = setInterval(function () {
 	setup();
 	for (var i = 0; i < rain.length; i++) {
 		rain[i].draw();
 		rain[i].update();
 	}
-// 1000/fps you want
+// FPS (1000/Nb D'FPS)
 }, 1000/20);
 
-// Resize window
+// Resize si jamais la fenêtre est redimensionnée
 window.addEventListener("resize", function(){
 	height = window.innerHeight;
 	width = window.innerWidth;
