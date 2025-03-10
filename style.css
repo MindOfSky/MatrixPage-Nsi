@@ -35,7 +35,7 @@ body{
     top: 0;
     left: 0;
     z-index: -1;
-    opacity: 0.2;
+    opacity: 0.4;
 }
 canvas{
     border-bottom: 2px solid var(--accent-color);
@@ -104,6 +104,7 @@ nav{
 /* Contenu */
 
 section{
+    padding-top: 10vh;
     width: 100%;
     height: 90vh;
     
@@ -123,7 +124,9 @@ section{
 .content h1{
     font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
 }
-
+.content h4{
+    margin: 1rem;
+}
 .content p{
     font-size: clamp(0.4rem , 0.2rem + 9vw, 1rem);
     margin: 1rem;
@@ -145,4 +148,6 @@ section{
 }
 footer{
     text-align: center;
+    padding-top : 15vh
+    
 }
